@@ -12,12 +12,13 @@
 <body>
 
   <div id="words">
-    <p :class="words1" v-for="word in reverseArray(words1)">{{ word }}</p>
+    <p :class="words1" v-for="word in words1">{{ word }}</p>
   </div>
 
   <div id="inputForm">
 
-    <input type="text" v-model="textField" ref="textField" @keyup.enter="prependWord" v-on:input="inputString = $event.target.value" placeholder="Write here">
+    <input type="text" v-model="textField" ref="textField" @keyup.enter="prependWord" v-on:input="inputString = $event.target.value"
+      placeholder="Write here">
     <!-- add validation for submit? -->
     <input type="submit" value="Submit" @click="prependWord">
 
@@ -26,12 +27,13 @@
     </p>
   </div>
 
-  <!-- 
+
   <div id="wordCheck">
-      <input type="submit" value="Check">
-      <p v-if="arrayCheck">{{ arrayCheck }}</p>
+    <input type="submit" value="Check" @click="arrayCheck">
+    <p>{{ wordCount }}</p> <br>
+    <p>{{ wordCountTemp }}</p>
   </div>
--->
+
 
 </body>
 

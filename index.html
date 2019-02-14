@@ -3,8 +3,8 @@
 
 <head>
   <script defer src="https://vuejs.org/js/vue.js"></script>
-  <script defer type="text/javascript" src="./vue.js"></script>
   <script defer type="text/javascript" src="./words.js"></script>
+  <script defer type="text/javascript" src="./vue.js"></script>
   <meta charset="UTF-8">
   <title>WPM Counter</title>
 </head>
@@ -12,14 +12,14 @@
 <body>
 
   <div id="words">
-    <p :class="words1">{{ reverseArray(words1)[1] }}</p>
-    <p :class="words1"> <b>{{ reverseArray(words1)[0] }} </b></p>
+    <p :class="words1">{{ words1[1] }}</p>
+    <p :class="words1"> <b>{{ words1[0] }} </b></p>
   </div>
 
   <div id="inputForm">
 
-    <input type="text" v-model="textField" ref="textField" @keyup.enter="prependWord(); startTimer()" v-on:input="inputString = $event.target.value"
-      placeholder="Write here">
+    <input type="text" v-model="textField" ref="textField" @keyup.enter="prependWord(); startTimer()" @keyup.space="prependWord(); startTimer()"
+      v-on:input="inputString = $event.target.value" placeholder="Write here">
     <!-- disable field when seconds == 1 -->
     <!-- add validation for submit? -->
     <input type="submit" value="Submit" @click="prependWord(); startTimer()">
